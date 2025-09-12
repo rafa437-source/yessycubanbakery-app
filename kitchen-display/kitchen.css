@@ -1,0 +1,101 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c3e50; /* Un azul oscuro para un fondo de pantalla de cocina */
+    color: #ecf0f1; /* Letras blancas */
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #e74c3c; /* Un rojo vivo para el encabezado */
+    text-align: center;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+main {
+    padding: 2rem;
+}
+
+.orders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+#no-orders-message {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #bdc3c7;
+    margin-top: 5rem;
+    grid-column: 1 / -1; /* Centra el mensaje en toda la pantalla */
+}
+
+.order-card {
+    background-color: #34495e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #546a84;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.order-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f1c40f; /* Amarillo para el número de orden */
+}
+
+.customer-name {
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #bdc3c7;
+}
+
+.order-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.order-item {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.order-status {
+    text-align: right;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.complete-btn {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #2ecc71; /* Un verde vibrante */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.complete-btn:hover {
+    background-color: #27ae60;
+}

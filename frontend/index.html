@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yessycubanbakery - Menú</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="yessycubanbakery-logo.png" alt="Yessycubanbakery Logo" class="logo-img">
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="menu-container" id="menu-container">
+            </div>
+    </main>
+
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="toggleCart()">&times;</span>
+            <h2>Tu Pedido</h2>
+            <div id="cart-items">
+                </div>
+            <div class="cart-total">
+                <strong>Total: $<span id="cart-total-price">0.00</span></strong>
+            </div>
+            <form id="order-form">
+                <input type="text" id="customer-name" placeholder="Tu nombre" required>
+                <button type="submit" class="order-button">Confirmar Pedido</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente un poco más moderna */
+    background-color: #F0F0F0; /* Fondo más suave */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: #DC241F; /* Rojo vibrante del logo */
+    color: white;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Sutil sombra para profundidad */
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-img { /* Estilos para tu imagen del logo */
+    height: 60px; /* Ajusta el tamaño según necesites */
+    width: auto;
+    border-radius: 50%; /* Si quieres que sea circular como en la imagen */
+    border: 3px solid #FFFFFF; /* Borde blanco alrededor del logo */
+}
+
+.cart-icon {
+    position: relative;
+    cursor: pointer;
+    font-size: 1.8rem; /* Icono un poco más grande */
+}
+
+#cart-count {
+    background-color: #0A4ABF; /* Azul del logo */
+    color: white;
+    border-radius: 50%;
+    padding: 0.2rem 0.6rem;
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+main {
+    padding: 2rem;
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Artículos un poco más grandes */
+    gap: 25px; /* Espacio entre artículos */
+}
+
+h2 { /* Estilo para los títulos de categoría */
+    grid-column: 1 / -1; /* Ocupa todo el ancho */
+    color: #0A4ABF; /* Azul para categorías */
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    font-size: 2em;
+    border-bottom: 2px solid #DC241F; /* Línea decorativa roja */
+    padding-bottom: 10px;
+}
+
+.menu-item {
+    background-color: white;
+    border-radius: 10px; /* Bordes más suaves */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease-in-out; /* Animación al pasar el mouse */
+}
+
+.menu-item:hover {
+    transform: translateY(-5px); /* Pequeño efecto al pasar el mouse */
+}
+
+.item-content {
+    padding: 1.2rem;
+    flex-grow: 1; /* Para que el contenido crezca y empuje el botón hacia abajo */
+}
+
+.item-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: #DC241F; /* Rojo para nombres de productos */
+}
+
+.item-content p {
+    margin: 0 0 1rem 0;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.item-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #0A4ABF; /* Azul para precios */
+}
+
+.add-to-cart-btn {
+    width: 100%;
+    background-color: #0A4ABF; /* Azul del logo */
+    color: white;
+    border: none;
+    padding: 0.85rem; /* Un poco más de padding */
+    cursor: pointer;
+    font-size: 1.05rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    border-bottom-left-radius: 10px; /* Redondea las esquinas inferiores */
+    border-bottom-right-radius: 10px;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #073699; /* Un azul más oscuro al pasar el mouse */
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001; /* Asegura que esté por encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6); /* Fondo más oscuro y visible */
+    backdrop-filter: blur(8px); /* Efecto de desenfoque más pronunciado */
+    animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 8% auto; /* Centrado un poco más alto */
+    padding: 30px; /* Más padding */
+    border: 1px solid #DC241F; /* Borde rojo */
+    width: 90%;
+    max-width: 550px; /* Un poco más ancho */
+    border-radius: 15px; /* Bordes más redondeados */
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+    animation: slideInFromTop 0.3s ease-out;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 32px; /* Más grande */
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #DC241F; /* Rojo al pasar el mouse */
+    text-decoration: none;
+}
+
+#cart-items {
+    margin-bottom: 25px;
+    max-height: 300px; /* Altura máxima para scroll si hay muchos items */
+    overflow-y: auto;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 12px 0;
+}
+
+.item-details {
+    flex-grow: 1;
+    font-size: 1.05rem;
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Espacio entre botones y cantidad */
+}
+
+.quantity-control button {
+    background-color: #DC241F; /* Rojo del logo */
+    color: white;
+    border: none;
+    padding: 0.3rem 0.7rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border-radius: 5px; /* Bordes suaves para botones */
+    transition: background-color 0.2s ease;
+}
+
+.quantity-control button:hover {
+    background-color: #B51D1A; /* Rojo más oscuro al pasar el mouse */
+}
+
+.quantity-control span {
+    margin: 0 5px;
+    font-weight: bold;
+}
+
+.cart-total {
+    text-align: right;
+    margin-top: 25px;
+    font-size: 1.4rem;
+    color: #0A4ABF; /* Azul para el total */
+}
+
+#customer-name {
+    width: calc(100% - 20px); /* Ajuste para padding */
+    padding: 12px;
+    margin-top: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.order-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #0A4ABF; /* Azul principal */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.order-button:hover {
+    background-color: #073699; /* Azul más oscuro al pasar el mouse */
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem;
+    }
+
+    .logo-img {
+        height: 50px;
+    }
+
+    .cart-icon {
+        font-size: 1.6rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .menu-container {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+}
